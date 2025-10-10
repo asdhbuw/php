@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 style = "text-align: center:">Таблица умножения</h1>
+    <h1>Таблица умножения</h1>
     <table border="1">
         <?php
             for ($i = 1;$i <= 9; $i++){
