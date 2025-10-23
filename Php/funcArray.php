@@ -56,3 +56,11 @@ echo implode(" ",$result);
 
 
 echo "<h2>Задание 5</h2>";
+$array = [
+    5 => 'яблоко',
+    2 => 'банан', 
+    8 => 'апельсин',
+    0 => 'киви',
+    7 => 'манго'
+];
+echo implode(",",array_values($array));
