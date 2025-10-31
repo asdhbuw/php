@@ -141,25 +141,28 @@ $clothes = [
     </html>
 <?php
 if(isset($_GET['Category'])){
-    echo 'Все товары данной категории: ';
     $category = $_GET['category'];
     $yesCategory = false;
+    $categoryProducts = [];
     foreach($clothes as $product){
         if ($product['category'] == $category){ 
             $yesCategory = true;
-            break;
-        }else echo 'Такой категории нет(';
-    }
-    foreach($clothes as $product){
-        if($yesCategory){
-            echo 'Наименование: ', $product['name'], ' ', "<br>"; 
-            echo 'Бренд: ', $product['brand'], ' ', "<br>";
-            echo 'Цена: ', $product['price'], ' ', "<br>";
+            $categoryProducts[] = $product;
         }
     }
-    
 }
 ?>
+<?php if($yesCategory):?>
+    <?php foreach($categoryProducts as $product): ?>
+        Наименование: <?=$product['name']?><br>
+        Бренд:  <?=$product['brand']?> <br>
+        Цена: <?=$product['price']?> <br>
+    <?php endforeach; ?>
+<?php else:?>
+    Такой категории нет
+<?php endif; ?>
+
+
 <h2>Задание 5</h2>
 
     <form action="">
@@ -174,9 +177,7 @@ if(isset($_GET['Name'])){
         if($product['name'] == $name) {
             $good = $product;
         }
-
     }
-
 }
 ?>
 <?php  if(isset($good)):?>
