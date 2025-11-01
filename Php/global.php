@@ -53,3 +53,15 @@ $str = 'hello world my name is sdfjhshdjf';
 $stR = fn($str) => strlen($str) > 79 ? 'String is long' : (strlen($str) < 32 ? 'String is short' : 'Length of String OK');
 ?>
 <?= $stR($str)?>
+
+
+<h2>Задание 7</h2>
+<?php 
+$summ = 50;
+$bread = 50;
+$fun = fn($summ, $bread) => $summ == $bread ?
+["str" => 'Вы можете купить хлеб, без сдачи', "result" => null] :
+($summ > $bread ? ["str" => 'Вы можете купить хлеб, ваша сдача:', "result" => $summ - $bread] :
+["str" => 'Вам не хватает: ', "result" => $bread - $summ]); 
+$result = $fun($summ, $bread); ?>
+<?= $result['str'], $result['result'] ?>
